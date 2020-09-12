@@ -3,10 +3,13 @@ import Router from 'vue-router'
 import vuetify from './plugins/vuetify'
 import App from './App.vue'
 import Home from './components/Home.vue'
-import Page1 from './components/Page1.vue'
+import Introduction from './components/Introduction.vue'
+import InGame from './components/InGame.vue'
 import Page2 from './components/Page2.vue'
 
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
+import 'bootstrap/dist/css/bootstrap.css'
 
 const originalPush = Router.prototype.push;
 Router.prototype.push = function push(location) {
@@ -14,6 +17,9 @@ Router.prototype.push = function push(location) {
 }
 
 Vue.use(Router)
+
+window._ = require('lodash')
+window.axios = require('axios')
 
 const router = new Router({
   mode: 'history',
@@ -24,14 +30,14 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/page-1',
-      name:'page-1',
-      component: Page1
+      path: '/introduction',
+      name:'introduction',
+      component: Introduction
     },
     {
-      path: '/page-2',
-      name:'page-2',
-      component: Page2
+      path: '/in-game',
+      name:'in-game',
+      component: InGame
     }
   ]
 })
