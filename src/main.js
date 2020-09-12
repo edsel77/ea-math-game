@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import vuetify from './plugins/vuetify'
 import App from './App.vue'
 import Home from './components/Home.vue'
 import Page1 from './components/Page1.vue'
 import Page2 from './components/Page2.vue'
+
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 const originalPush = Router.prototype.push;
 Router.prototype.push = function push(location) {
@@ -35,6 +38,7 @@ const router = new Router({
 
 new Vue({
  el: '#app',
+ vuetify,
  render: h => h(App),
  router
 })
