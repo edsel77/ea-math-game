@@ -55,7 +55,7 @@
         </v-col>
       </v-row>
       <div class="p-2" style="font-size: 20px" v-show="timer > 90">
-        <strong>Congrats Edsel!</strong>
+        <strong>{{`Congrats ${game_data.username}!`}}</strong>
         <v-row>
           <v-col cols="8">
             <span>Correct Answer:</span>
@@ -82,7 +82,14 @@
           </v-col>
         </v-row>
 
-        <div class="my-2 text-center">
+        <div v-if="score_upload_status === 1" style="background-color: green; color: white; padding: 5px">
+          <small>Score uploaded</small>
+        </div>
+        <div v-else style="background-color: red; color: white; padding: 5px">
+          <small>Score uploading...</small>
+        </div>
+
+        <div class="my-6 text-center">
           <v-btn x-large class="ma-2" outlined color="indigo" to="/">START AGAIN</v-btn>
         </div>
       </div>
@@ -103,7 +110,8 @@
         correct_answer: '',
         merit: 0,
         demerit: 0,
-        score: 0
+        score: 0,
+        score_upload_status: 0
       }
     },
     methods: {
@@ -171,15 +179,21 @@
         this.generateQuestion(this.level)
       },
       submitGame () {
-        console.log('test')
         let game_data = {
-          date: new Date(),
           load_prize: this.game_data.load_prize,
           mobile_no: this.game_data.mobile_no,
           score: this.score,
           username: this.game_data.username
         }
 
+        let header = {
+          'content-type': 'application/json'
+        }
+
+        axios.post(`https://jsonbox.io/${this.$server_id}`, game_data, header)
+        .then(response => {
+          this.score_upload_status = 1
+        })
       }
     },
     created () {
@@ -213,7 +227,7 @@
     },
     watch: {
       'timer' (time) {
-        // if (time > 90) this.submitGame()
+        if (time === 90) this.submitGame()
       }
     }
   }

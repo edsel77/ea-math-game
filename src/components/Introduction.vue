@@ -32,6 +32,9 @@
           ></v-select>
         </v-col>
       </v-row>
+      <div>
+        <small>By starting the game, you are agreed to the terms and conditions.</small>
+      </div>
       <div class="my-2 text-center">
         <v-btn x-large class="ma-2" outlined color="indigo" @click="startGame">START</v-btn>
       </div>
@@ -51,11 +54,11 @@
           'FB10', 
           'GIGA VIDEO 50', 
           'GIGA STORIES 50',
-          'GIGA VIDEO 90', 
-          'GIGA STORIES 90',
+          // 'GIGA VIDEO 90', 
+          // 'GIGA STORIES 90',
           'GO50',
-          'GO70',
-          'GO90'
+          // 'GO70',
+          // 'GO90'
         ]
       }
     },
