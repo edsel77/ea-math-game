@@ -89,7 +89,7 @@
           <small>Score uploading...</small>
         </div>
 
-        <div class="my-6 text-center">
+        <div class="my-6 text-center" v-show="score_upload_status !== 0">
           <v-btn x-large class="ma-2" outlined color="indigo" to="/">START AGAIN</v-btn>
         </div>
       </div>

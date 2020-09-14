@@ -55,7 +55,7 @@
     },
     created () {
       this.getGameData()
-      localStorage.removeItem('game_data')
+      // localStorage.removeItem('game_data')
     }
   }
 </script>

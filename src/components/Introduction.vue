@@ -59,7 +59,8 @@
           'GO50',
           // 'GO70',
           // 'GO90'
-        ]
+        ],
+        game_data: ''
       }
     },
     methods: {
@@ -72,7 +73,18 @@
         }
         localStorage.setItem('game_data', JSON.stringify(game_data))
         this.$router.push('/in-game')
+      },
+      fillData () {
+        if (localStorage.getItem('game_data')) {
+          this.game_data = JSON.parse(localStorage.getItem('game_data'))
+          this.username = this.game_data.username
+          this.mobile_no = this.game_data.mobile_no
+          this.load_prize = this.game_data.load_prize
+        }
       }
+    },
+    created () {
+      this.fillData()
     }
   }
 </script>
