@@ -6,6 +6,7 @@ import Home from './components/Home.vue'
 import Introduction from './components/Introduction.vue'
 import InGame from './components/InGame.vue'
 import TOC from './components/TOC.vue'
+import GameDataList from './components/GameDataList.vue'
 
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
@@ -45,6 +46,11 @@ const router = new Router({
       path: '/terms-and-conditions',
       name:'terms-and-conditions',
       component: TOC
+    },
+    {
+      path: '/game-data-list',
+      name:'game-data-list',
+      component: GameDataList
     }
   ]
 })

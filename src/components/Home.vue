@@ -17,6 +17,9 @@
               <span class="ml-4">{{`Prize: ${data[0].load_prize}`}}</span>
             </div>
             <strong v-else class="ml-4">Loading data...</strong>
+            <router-link to="/game-data-list" v-show="data.length > 0">
+              <small class="ml-4">See all</small>
+            </router-link>
             <br>
             <br>
             <div class="my-6 text-center">
@@ -44,7 +47,7 @@
           'content-type': 'application/json'
         }
 
-        axios.get(`https://jsonbox.io/${this.$server_id}?sort=-score&limit=20`, header)
+        axios.get(`https://jsonbox.io/${this.$server_id}?sort=-score&limit=1000`, header)
         .then(response => {
           this.data = _.sortBy(response.data, ['score', '_createdOn']).reverse()
         })
