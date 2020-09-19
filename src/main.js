@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import vuetify from './plugins/vuetify'
 import App from './App.vue'
-import Home from './components/Home.vue'
+import NewHomeGame from './components/NewHomeGame.vue'
 import Introduction from './components/Introduction.vue'
-import InGame from './components/InGame.vue'
+import InGameColor from './components/InGameColor.vue'
 import TOC from './components/TOC.vue'
 import GameDataList from './components/GameDataList.vue'
 
@@ -29,8 +29,8 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name:'home',
-      component: Home
+      name:'new-home-game',
+      component: NewHomeGame
     },
     {
       path: '/introduction',
@@ -40,7 +40,7 @@ const router = new Router({
     {
       path: '/in-game',
       name:'in-game',
-      component: InGame
+      component: InGameColor
     },
     {
       path: '/terms-and-conditions',

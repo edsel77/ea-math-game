@@ -1,3 +1,3 @@
 import Vue from 'vue'
 
-Vue.prototype.$server_id = 'box_468508fe0bcb065a70e3'
+Vue.prototype.$server_id = 'box_0fb39576d9487a988997'

@@ -54,11 +54,11 @@
           'FB10', 
           'GIGA VIDEO 50', 
           'GIGA STORIES 50',
-          // 'GIGA VIDEO 90', 
-          // 'GIGA STORIES 90',
+          'GIGA VIDEO 99', 
+          'GIGA STORIES 99',
           'GO50',
-          // 'GO70',
-          // 'GO90'
+          'GO70',
+          'GO90'
         ],
         game_data: ''
       }
