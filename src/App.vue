@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <div class="text-center">
-        <img src="ea_math_game_logo.png" alt="EA Math" @click="goToHome" height="120px">
+        <img src="arat_g_color_game_logo.png" alt="EA Math" @click="goToHome" height="120px">
       </div>
     </header>
     <main>

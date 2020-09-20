@@ -108,8 +108,7 @@
       selectedColor (color) {
         if (color === this.random_color_text) this.merit++
         else this.demerit++
-        console.log(`color: ${color}`)
-        console.log(`random color: ${this.random_color_text}`)
+
         this.newSession()
       },
       submitGame () {
@@ -157,6 +156,10 @@
       this.newSession()
       setInterval(() => {
         this.timer++
+
+        if (moment().format('MMMM Do YYYY, h:mm:ss a') > moment(this.$date).format('MMMM Do YYYY, h:mm:ss a')) {
+          this.$router.push('/')
+        }
       }, 1000)
       if (!localStorage.getItem('game_data')) this.$router.push('/')
     },

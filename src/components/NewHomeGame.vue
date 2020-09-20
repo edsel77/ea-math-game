@@ -7,14 +7,15 @@
           <div class="p-3">
             <div class="text-center">
               <h2 style="color: red !important">Color Game</h2>
-              <small style="color: blue !important">Let's start now!</small>
+              <small style="color: green !important" v-show="!game_ended">Let's start now!</small>
               
               <br>
               <br>
 
               <div v-if="data.length > 0">
-                <strong>First Rank</strong>
-                <span>{{`${data[0].username}`}}</span><br>
+                <strong v-if="!game_ended">First Rank</strong>
+                <strong v-else style="color: green">Game ended, congratulations!</strong><br>
+                <span style="color: blue;" @click="$router.push('/winner-details')">{{`${data[0].username}`}}</span><br>
                 <span>{{`Score: ${data[0].score} pts`}}</span><br>
                 <span>{{`Prize: ${data[0].load_prize}`}}</span>
               </div>
@@ -23,11 +24,13 @@
                 <small>See all</small>
               </router-link>
               <br>
+              <small style="color: orange" v-show="game_ended">Load prize will be delivered within the day.</small>
               <br>
-              <div class="my-6 text-center">
+              <div class="my-6 text-center" v-show="!game_ended">
                 <v-btn x-large class="ma-2" outlined to="/introduction">START NOW</v-btn>
               </div>
-              <small class="p-2" @click="gotToTOC">Terms and conditions, v1.0</small>
+              <small style="color: blue !important" v-show="!game_ended">{{`Keep on top until ${end_game}.`}}</small><br>
+              <small class="p-2" @click="gotToTOC">{{`Terms and conditions, ${$version}`}}</small>
             </div>
           </div>
         </v-col>
@@ -41,7 +44,8 @@
   export default {
     data () {
       return {
-        data: ''
+        data: '',
+        game_ended: false
       }
     },
     methods: {
@@ -61,7 +65,17 @@
     },
     created () {
       this.getGameData()
-      // localStorage.removeItem('game_data')
+
+      setInterval(m => {
+        if (moment().format('MMMM Do YYYY, h:mm:ss a') > moment(this.$date).format('MMMM Do YYYY, h:mm:ss a')) {
+          this.game_ended = true
+        }
+      }, 1000)
+    },
+    computed: {
+      end_game () {
+        return moment(this.$date).format('MMMM Do YYYY, h:mm:ss a')
+      }
     }
   }
 </script>

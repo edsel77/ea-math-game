@@ -85,6 +85,12 @@
     },
     created () {
       this.fillData()
+
+      setInterval(m => {
+        if (moment().format('MMMM Do YYYY, h:mm:ss a') > moment(this.$date).format('MMMM Do YYYY, h:mm:ss a')) {
+          this.$router.push('/')
+        }
+      }, 1000)
     }
   }
 </script>

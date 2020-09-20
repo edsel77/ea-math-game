@@ -4,17 +4,17 @@
     <v-container>
       <v-row dense class="mt-2">
         <v-col cols="12">
-          <v-card color="#000026" dark>
-            <v-card-title class="headline">Terms and conditions</v-card-title>
-
-            <v-card-subtitle>
-              <small>- EA Math Game can widthraw all the session saved for events that require further investigation.</small><br>
-              <small>- All the information saved will be deleted every Friday midnight.</small><br>
-              <small>- By starting the game, you allowed EA Math Game to collect information for reference.</small><br>
-              <small>- Prize will be automatically delivered to the player with the latest highest score at 11:59 pm every Friday.</small><br>
-            </v-card-subtitle>
+          <div class="p-3">
+            <div class="headline">Terms and conditions</div>
+            <hr>
+            <div>
+              <small>- Arat G Color Game can widthraw all the session saved for events that require further investigation.</small><br>
+              <small>- All the information saved will be deleted after the announcement of winner.</small><br>
+              <small>- By starting the game, you allowed Arat G Color Game to collect information for reference.</small><br>
+              <small>- Prize will be automatically/manually delivered to the player with the latest highest score on the announced date.</small><br>
+            </div>
             
-          </v-card>
+          </div>
         </v-col>
       </v-row>
     </v-container>

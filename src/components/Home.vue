@@ -25,7 +25,7 @@
             <div class="my-6 text-center">
               <v-btn x-large class="ma-2" outlined color="white" to="/introduction">START NOW</v-btn>
             </div>
-            <small style="color: white" class="p-2" @click="gotToTOC">Terms and conditions, v1.0</small>
+            <small style="color: white" class="p-2" @click="gotToTOC">{{`Terms and conditions, ${$version}`}}</small>
           </v-card>
         </v-col>
       </v-row>

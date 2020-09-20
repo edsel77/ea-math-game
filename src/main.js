@@ -7,6 +7,7 @@ import Introduction from './components/Introduction.vue'
 import InGameColor from './components/InGameColor.vue'
 import TOC from './components/TOC.vue'
 import GameDataList from './components/GameDataList.vue'
+import WinnerDetails from './components/WinnerDetails.vue'
 
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
@@ -23,6 +24,9 @@ window._ = require('lodash')
 window.axios = require('axios')
 
 import './prototypes'
+
+import moment from 'moment'
+window.moment = moment
 
 const router = new Router({
   mode: 'history',
@@ -51,6 +55,11 @@ const router = new Router({
       path: '/game-data-list',
       name:'game-data-list',
       component: GameDataList
+    },
+    {
+      path: '/winner-details',
+      name:'winner-details',
+      component: WinnerDetails
     }
   ]
 })
