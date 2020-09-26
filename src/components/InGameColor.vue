@@ -157,7 +157,7 @@
       setInterval(() => {
         this.timer++
 
-        if (moment().format('MMMM Do YYYY, h:mm:ss a') > moment(this.$date).format('MMMM Do YYYY, h:mm:ss a')) {
+        if (moment().unix() > moment(this.$date).unix()) {
           this.$router.push('/')
         }
       }, 1000)

@@ -65,9 +65,11 @@
     },
     created () {
       this.getGameData()
-
+      console.log(moment().unix())
+      console.log(moment(this.$date).unix())
+      console.log(moment().unix() > moment(this.$date).unix())
       setInterval(m => {
-        if (moment().format('MMMM Do YYYY, h:mm:ss a') > moment(this.$date).format('MMMM Do YYYY, h:mm:ss a')) {
+        if (moment().unix() > moment(this.$date).unix()) {
           this.game_ended = true
         }
       }, 1000)
